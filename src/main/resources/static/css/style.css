@@ -1,0 +1,139 @@
+*{
+    box-sizing: border-box;
+}
+.header-container{
+    background: url("../images/myimages/header_image.jpg");
+    height: 100px;
+}
+.home-page-link{
+    text-decoration: none;
+}
+.home-page-icon{
+    height: 40%;
+    margin-left: 10px;
+
+}
+.home-page-label{
+    height: 40%;
+    padding-top:30px;
+    color: #ffffff;
+    font-size: 20px;
+    margin-left: 5px;
+}
+.body-container{
+    background: #cacbcd;
+    height: 100%;
+    padding: 3px;
+}
+.flight-type-box{
+    display: flex;
+}
+.radio-btn-box{
+    border: 2px solid blue;
+    border-radius: 4px;
+    width: 100px;
+    height: 40px;
+    margin: 20px 5px 20px 5px;
+    display: flex;
+}
+.booking-label{
+    color: #0f62ac;
+}
+.radio-btn-box img{
+    width: 50%;
+    height: 100%;
+}
+.label-row{
+    padding-top: 20px;
+    text-align: center;
+}
+.one-way-label{
+    width: 40%;
+    line-height: 50px;
+    text-align: right;
+}
+.return-label{
+    width: 40%;
+    line-height: 50px;
+    text-align: left;
+}
+.form-container{
+    width: 60%;
+    background: #ffffff;
+    margin: 20px auto;
+    padding: 2px;
+}
+.choose-place-box{
+    display: flex;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #005fb4;
+    padding-bottom:20px;
+    padding-top: 10px;
+}
+.choose-place-box div select{
+    border: 1px solid #005fb4;
+    border-radius: 5px;
+    height: 30px;
+    width: 100%;
+}
+.start-place-box{
+    margin-left: 30px;
+    margin-right: 80px;
+    width: 40%;
+
+}
+.destination-place-box{
+    margin-left: 80px;
+    margin-right: 30px;
+    width: 40%;
+}
+.choose-date-box{
+    display: flex;
+    margin-bottom: 30px;
+    padding-bottom:20px ;
+}
+.choose-date-box div input{
+    border: 1px solid #005fb4;
+    border-radius: 5px;
+    height: 30px;
+    width: 100%;
+}
+.start-date-box{
+    margin-left: 30px;
+    margin-right: 80px;
+    width: 40%;
+}
+.return-date-box{
+    margin-left: 80px;
+    margin-right: 30px;
+    width: 40%;
+}
+.choose-passenger-number{
+    display: flex;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #005fb4;
+    padding-bottom:20px ;
+}
+.choose-passenger-number div{
+    margin-left: 30px;
+    margin-right: 30px;
+    width: 30%;
+}
+.choose-passenger-number div input{
+    border: 1px solid #005fb4;
+    border-radius: 5px;
+    height: 30px;
+    width: 100%;
+}
+.find-flight-box{
+    text-align: center;
+    padding-bottom: 10px;
+}
+.find-btn input{
+    background: #005fb4;
+    height: 40px;
+    width: 30%;
+    border: #cacbcd;
+    border-radius: 5px;
+    color: #ffffff;
+}

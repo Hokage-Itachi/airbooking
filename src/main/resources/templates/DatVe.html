@@ -1,0 +1,136 @@
+﻿<!DOCTYPE HTML
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{style/theme.css}" media="all" />
+    <title>Trang chủ</title>
+    <script th:src="@{js/jquery-1.7.1.min.js}"></script>
+    <script th:src="@{js/slides.min.jquery.js}"></script>
+    <script type="application/javascript" th:src="@{js/myjs/script.js}"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+    <!-- <script>
+        $(function () {
+            $('#slides').slides({
+                generateNextPrev: true,
+                play: 5000
+            });
+
+        });
+
+    </script> -->
+    <script>
+        $(function () {
+            $("#datepicker-1").datepicker();
+            $("#datepicker-2").datepicker();
+        });
+    </script>
+</head>
+
+<body>
+
+<div id="container">
+    <div class="main clearfix">
+        <div class="inner-container">
+            <ul class="pathway clearfix">
+                <li class="active"><a th:href="@{DatVe}">1. Tìm chuyến bay</a></li>
+                <li><a th:href="@{DatVe-B2}">2. Chọn chuyến bay</a></li>
+                <li><a th:href="@{DatVe-B3}">3. Thông tin hành khách</a></li>
+                <li><a th:href="@{DatVe-B4}">4. Kết thúc</a></li>
+            </ul>
+            <div class="box-main clearfix">
+                <div class="box-search">
+                    <h1 class="title-main"><strong>Đặt Vé Máy Bay</strong></h1>
+                    <form method="POST" th:action="@{search}" th:object="${searchForm}">
+                        <ul class="choose clearfix">
+
+                                <input checked type="radio" name="choose" id="Return" th:field="*{type_fight}" th:value="2" onclick="change_flight_selection()"/>
+                                <label for="Return" id="return-label" class="return-label" onclick="change_flight_selection()">Khứ
+                                    hồi</label>
+
+                                <input type="radio" name="choose" id="oneway" th:field="*{type_fight}" th:value="1" onclick="change_flight_selection()"/>
+                                <label for="oneway" id="oneway-label" onclick="change_flight_selection()">Một
+                                    chiều</label>
+
+                        </ul>
+                        <div class="form">
+                            <div class="box clearfix">
+                                <div class="col-50">
+                                    <label>Điểm khởi hành</label>
+                                    <select class="autocomplete-ui-autocomplete-input"  th:field="*{orig_place}">
+                                        <option th:each="airport : ${airports}"
+                                                th:value="${airport.airport_code}"
+                                                th:utext="${airport.airport_name}">Điểm đến</option>
+                                    </select>
+
+                                </div>
+                                <div class="col-50 last">
+                                    <label>Điểm đến</label>
+                                    <select class="autocomplete-ui-autocomplete-input"  th:field="*{des_place}">
+                                        <option th:each="airport : ${airports}"
+                                                th:value="${airport.airport_code}"
+                                                th:utext="${airport.airport_name}"/>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="box clearfix">
+                                <div class="col-50">
+                                    <div class="box bottom clearfix">
+                                        <div class="col-ahaft" id="col-ahaft">
+                                            <label>Ngày đi</label>
+                                            <input class="ics_date" type="text" value="19/09/2020" th:field="${searchForm.orig_date}"
+                                                   id="datepicker-1" />
+                                        </div>
+                                        <div class="col-ahaft last" id="col-ahaft last">
+                                            <label>Ngày về</label>
+                                            <input class="ics_date" type="text" value="20/7/2020" th:field="${searchForm.return_date}"
+                                                   id="datepicker-2" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-50 last">
+                                    <div class="box bottom clearfix">
+                                        <div class="col-30">
+                                            <label>Người lớn <span>(> 12 tuổi)</span> </label>
+                                            <div class="person1">
+                                                <input class="number-person" type="number"  min="1" th:field="${searchForm.adult_number}"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-30">
+                                            <label>Trẻ em <span>(2 - 12 tuổi)</span> </label>
+                                            <div class="person2">
+                                                <input class="number-person" type="number" th:field="${searchForm.child_number}"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-30 last">
+                                            <label>Em bé <span>(< 2 tuổi)</span> </label>
+                                            <div class="person3">
+                                                <input class="number-person" type="number"th:field="${searchForm.baby_number}"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box bottom clearfix">
+                                <div class="col-50 last">
+                                    <div class="btn-search">
+                                        <input type="submit" value="Tìm chuyến bay" class="button-search" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+</body>
+
+</html>
