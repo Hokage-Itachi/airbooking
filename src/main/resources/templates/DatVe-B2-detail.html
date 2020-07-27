@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="style/theme.css" media="all" />
+	<title>Trang chủ</title>
+	<script src="js/jquery-1.7.1.min.js"></script>
+	<script src="js/slides.min.jquery.js"></script>
+	<script>
+		$(function(){
+			$('#slides').slides({
+				generateNextPrev: true,
+				play: 5000
+			});
+
+		});
+	</script>
+	</head>
+	<body>
+    <div id="container">
+      <div class="main clearfix">
+        <div class="inner-container">
+          <ul class="pathway clearfix">
+            <li><a href="DatVe.html">1. Tìm chuyến bay</a></li>
+            <li class="active"><a href="DatVe-B2.html">2. Chọn chuyến bay</a></li>
+            <li><a href="DatVe-B3.html">3. Thông tin hành khách</a></li>
+            <li><a href="DatVe-B4.html">4. Thanh toán</a></li>
+          </ul>
+          <div class="box-main clearfix">
+            <div class="col-left">
+              <div class="box-item">
+                <h2 class="title-item"><strong>2. Chọn chuyến bay</strong> <span>(<span class="clblue">Hà Nội</span> <span class="text-plane"><img src="images/img-khu-hoi.png" width="16" height="20" alt=""/></span> <span class="clblue">TP.Hồ Chí Minh</span>)</span></h2>
+                <ul class="choose-day clearfix">
+                  <li><a href="#">THỨ HAI<br />
+                    25/04</a></li>
+                  <li class="active"><a href="#">THỨ ba<br />
+                    26/04</a></li>
+                  <li><a href="#">THỨ tư<br />
+                    27/04</a></li>
+                  <li><a href="#">THỨ năm<br />
+                    28/04</a></li>
+                  <li><a href="#">THỨ sáu<br />
+                    29/04</a></li>
+                  <li><a href="#">THỨ bảy<br />
+                    30/04</a></li>
+                  <li class="no-bor"><a href="#">chủ nhật<br />
+                    01/05</a></li>
+                </ul>
+                <div class="box-conts clearfix">
+                  <table class="table" id="tblDepart">
+                    <thead>
+                      <tr class="title-row">
+                        <td width="10%" style="text-align: left"> Chặng bay </td>
+                        <td width="20%" style="text-align: left"> Hãng bay </td>
+                        <td width="15%"> Giờ đi</td>
+                        <td width="15%"> Giờ đến</td>
+                        <td width="10%"> Số chặng </td>
+                        <td width="15%"> Giá</td>
+                        <td width="15%">&nbsp;</td>
+                        <td width="15%">&nbsp;</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="selected">
+                        <td class="img-airline" style="border-bottom: 1px dotted #d8d8d8;"> Chiều đi:<br />
+                          <span>25/05</span></td>
+                        <td class="img-airline" style="border-bottom: 1px dotted #d8d8d8;"><div class="airline_brand clearfix">
+                            <div class="img-fly"><span class="img50"><img src="Images/VN.gif" alt="VN"></span></div>
+                            <div class="text-fly">Vietnam Airline<br />
+                            VN 662</div>
+                          </div></td>
+                        <td class="time" style="border-bottom: 1px dotted #d8d8d8;"><b>10:40 </b>HAN </td>
+                        <td class="time" style="border-bottom: 1px dotted #d8d8d8;"><b>14:50 </b>SIN </td>
+                        <td style="border-bottom: 1px dotted #d8d8d8;"><b>2 chặng</b></td>
+                        <td class="price" rowspan="2" style="border-bottom: 3px solid #d8d8d8"><b>10,500,000 VND</b></td>
+                        <td class="view-detail" onclick="return viedetail('27284');" rowspan="2" style="border-bottom: 3px solid #d8d8d8; padding-top: 25px;"><a href="javascript:;">Thu gọn</a></td>
+                        <td rowspan="2" style="border-bottom: 3px solid #d8d8d8"><input type="radio" value="27284" name="departFlight" style="right: 40px;top:25px;display: none">
+                          <input class="choose-button" type="button" value="Đặt vé"></td>
+                      </tr>
+                      <tr>
+                        <td class="img-airline" style="border-bottom: 3px solid #d8d8d8;"> Chiều về:<br />
+                          <span>01/06</span></td>
+                        <td class="img-airline" style="border-bottom: 3px solid #d8d8d8;"><div class="airline_brand clearfix">
+                            <div class="img-fly"><span class="img50"><img src="Images/VN.gif" alt="VN"></span></div>
+                            <div class="text-fly">Vietnam Airline<br />
+                            VN 662</div>
+                          </div></td>
+                        <td class="time" style="border-bottom: 3px solid #d8d8d8;"><b>15:50 </b> SIN </td>
+                        <td class="time" style="border-bottom: 3px solid #d8d8d8"><b>18:10 </b> HAN </td>
+                        <td style="border-bottom: 3px solid #d8d8d8"><b>2 chặng</b></td>
+                      </tr>
+                      <tr class="flight-detail" style="display: table-row;">
+                        <td colspan="9" style="border-bottom:3px solid #d8d8d8"><h3 style="margin: 10px;"> Chi tiết chuyến bay </h3>
+                          <p> </p>
+                          <h4> <img src="images/departure.png" width="24" height="16" alt=""/> Chiều đi (26/04/2016) </h4>
+                          <p></p>
+                          <table class="table1" width="100%">
+                            <tbody>
+                              <tr>
+                                <td colspan="4"><b>Chặng bay: 1</b></td>
+                              </tr>
+                              <tr>
+                                <td width="250"><div class="airline_brand clearfix">
+                                    <div class="img-fly"><span class="img50"><img src="Images/VN.gif" alt="VN"></span></div>
+                                    <div class="text-fly">Chuyến bay điều hành bởi:<br />
+                                    Vietnam Airlines <strong>(VN 662)</strong></div>
+                                  </div></td>
+                                <td> Nơi đi: <strong>Hanoi</strong>, VN<br />
+                                  Giờ khởi hành: <strong>12:35</strong></td>
+                                <td> Nơi đến: <strong>Thành phố HCM</strong>, SGN<br />
+                                  Giờ đến: <strong>14:35</strong></td>
+                                <td> Hạng vé: <strong>Phổ thông</strong><br />
+                                  Thời gian bay: <strong>2 giờ 0 phút</strong></td>
+                              </tr>
+                              <tr>
+                                <td colspan="4"><b>Chặng bay: 2</b></td>
+                              </tr>
+                              <tr>
+                                <td><div class="airline_brand clearfix">
+                                    <div class="img-fly"><span class="img50"><img src="Images/VN.gif" alt="VN"></span></div>
+                                    <div class="text-fly">Chuyến bay điều hành bởi:<br />
+                                    Vietnam Airlines <strong>(VN 663)</strong></div>
+                                  </div></td>
+                                <td> Nơi đi: T<strong>hành phố HCM</strong>, SGN<br />
+                                  Giờ khởi hành: <strong>12:35</strong></td>
+                                <td> Nơi đến: <strong>Jakarta</strong> (JKT)<br />
+                                  Giờ đến: <strong>14:35</strong></td>
+                                <td> Hạng vé: <strong>Phổ thông</strong><br />
+                                  Thời gian bay: <strong>3 giờ 0 phút</strong></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <p> </p>
+                          <h4> <img src="images/arrival.png" width="24" height="16" alt=""/> Chiều về (02/05/2016) </h4>
+                          <p></p>
+                          <table class="table1" width="100%">
+                            <tbody>
+                              <tr>
+                                <td colspan="4"><b>Chặng bay: 1</b></td>
+                              </tr>
+                              <tr>
+                                <td width="250"><div class="airline_brand clearfix">
+                                    <div class="img-fly"><span class="img50"><img src="Images/VN.gif" alt="VN"></span></div>
+                                    <div class="text-fly">Chuyến bay điều hành bởi:<br />
+                                    Vietnam Airlines <strong>(VN 664)</strong></div>
+                                  </div></td>
+                                <td> Nơi đi: <strong>Jakarta</strong> (JKT)<br />
+                                  Giờ khởi hành: <strong>12:35</strong></td>
+                                <td> Nơi đến: <strong>Thành phố HCM</strong>, SGN<br />
+                                  Giờ đến: <strong>14:35</strong></td>
+                                <td> Hạng vé: <strong>Phổ thông</strong><br />
+                                  Thời gian bay: <strong>2 giờ 0 phút</strong></td>
+                              </tr>
+                              <tr>
+                                <td colspan="4"><b>Chặng bay: 2</b></td>
+                              </tr>
+                              <tr>
+                                <td><div class="airline_brand clearfix">
+                                    <div class="img-fly"><span class="img50"><img src="Images/VN.gif" alt="VN"></span></div>
+                                    <div class="text-fly">Chuyến bay điều hành bởi:<br />
+                                    Vietnam Airlines <strong>(VN 665)</strong></div>
+                                  </div></td>
+                                <td> Nơi đi: T<strong>hành phố HCM</strong>, SGN<br />
+                                  Giờ khởi hành: <strong>12:35</strong></td>
+                                <td> Nơi đến: <strong>Hanoi</strong>, VN<br />
+                                  Giờ đến: <strong>14:35</strong></td>
+                                <td> Hạng vé: <strong>Phổ thông</strong><br />
+                                  Thời gian bay: <strong>3 giờ 0 phút</strong></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <table class="table2" width="100%">
+                            <tbody>
+                              <tr>
+                                <th><strong>Loại hành khách</strong></th>
+                                <th class="text-center"><strong>Số lượng vé</strong></th>
+                                <th class="text-right"><strong>Giá mỗi vé</strong></th>
+                                <th class="text-right"><strong>Thuế và phí sân bay</strong></th>
+                                <th class="text-right"><strong>Phí dịch vụ</strong></th>
+                                <th class="text-right"><strong>Tổng giá</strong></th>
+                              </tr>
+                              <tr>
+                                <td>Người lớn</td>
+                                <td class="text-center">2</td>
+                                <td class="text-right">5.000,000 VNĐ</td>
+                                <td class="text-right">200,000 VNĐ</td>
+                                <td class="text-right">50,000 VNĐ</td>
+                                <td class="text-right"><strong>7,250,000 VNĐ</strong></td>
+                              </tr>
+                              <tr>
+                                <td>Trẻ em</td>
+                                <td class="text-center">1</td>
+                                <td class="text-right">2.500,000 VNĐ</td>
+                                <td class="text-right">100,000 VNĐ</td>
+                                <td class="text-right">25,000 VNĐ</td>
+                                <td class="text-right"><strong>3,625,000 VNĐ</strong></td>
+                              </tr>
+                              <tr>
+                                <td>Em bé</td>
+                                <td class="text-center">1</td>
+                                <td class="text-right">2.500,000 VNĐ</td>
+                                <td class="text-right">100,000 VNĐ</td>
+                                <td class="text-right">25,000 VNĐ</td>
+                                <td class="text-right"><strong>3,625,000 VNĐ</strong></td>
+                              </tr>
+                              <tr class="total">                                
+                                <td class="text-right" colspan="5"><b>Tổng thành tiền:</b></td>
+                                <td class="text-right"><strong>10,500,000 VND</strong></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          
+                          
+                          </td>
+                      </tr>
+                      <tr class="bgtr">
+                        <td class="img-airline" style="border-bottom: 1px dotted #d8d8d8;"> Chiều đi:<br />
+                          <span>25/05</span></td>
+                        <td class="img-airline" style="border-bottom: 1px dotted #d8d8d8;"><div class="airline_brand clearfix">
+                            <div class="img-fly"><span class="img50"><img src="Images/VN.gif" alt="VN"></span></div>
+                            <div class="text-fly">Vietnam Airline<br />
+                            VN 662</div>
+                          </div></td>
+                        <td class="time" style="border-bottom: 1px dotted #d8d8d8;"><b>10:40 </b>HAN </td>
+                        <td class="time" style="border-bottom: 1px dotted #d8d8d8;"><b>14:50 </b>SIN </td>
+                        <td style="border-bottom: 1px dotted #d8d8d8;"><b>2 chặng</b></td>
+                        <td class="price" rowspan="2" style="border-bottom: 3px solid #d8d8d8"><b>10,500,000 VND</b></td>
+                        <td class="view-detail" onclick="return viedetail('27284');" rowspan="2" style="border-bottom: 3px solid #d8d8d8; padding-top: 25px;"><a href="javascript:;">Chi tiết</a></td>
+                        <td rowspan="2" style="border-bottom: 3px solid #d8d8d8"><input type="radio" value="27284" name="departFlight" style="right: 40px;top:25px;display: none">
+                          <input class="choose-button" type="button" value="Đặt vé"></td>
+                      </tr>
+                      <tr class="bgtr">
+                        <td class="img-airline" style="border-bottom: 3px solid #d8d8d8;"> Chiều về:<br />
+                          <span>01/06</span></td>
+                        <td class="img-airline" style="border-bottom: 3px solid #d8d8d8;"><div class="airline_brand clearfix">
+                            <div class="img-fly"><span class="img50"><img src="Images/VN.gif" alt="VN"></span></div>
+                            <div class="text-fly">Vietnam Airline<br />
+                            VN 662</div>
+                          </div></td>
+                        <td class="time" style="border-bottom: 3px solid #d8d8d8;"><b>15:50 </b> SIN </td>
+                        <td class="time" style="border-bottom: 3px solid #d8d8d8"><b>18:10 </b> HAN </td>
+                        <td style="border-bottom: 3px solid #d8d8d8"><b>2 chặng</b></td>
+                      </tr>
+                      <tr>
+                        <td class="img-airline" style="border-bottom: 1px dotted #d8d8d8;"> Chiều đi:<br />
+                          <span>25/05</span></td>
+                        <td class="img-airline" style="border-bottom: 1px dotted #d8d8d8;"><div class="airline_brand clearfix">
+                            <div class="img-fly"><span class="img50"><img src="Images/VN.gif" alt="VN"></span></div>
+                            <div class="text-fly">Vietnam Airline<br />
+                            VN 662</div>
+                          </div></td>
+                        <td class="time" style="border-bottom: 1px dotted #d8d8d8;"><b>10:40 </b>HAN </td>
+                        <td class="time" style="border-bottom: 1px dotted #d8d8d8;"><b>14:50 </b>SIN </td>
+                        <td style="border-bottom: 1px dotted #d8d8d8;"><b>2 chặng</b></td>
+                        <td class="price" rowspan="2" style="border-bottom: 3px solid #d8d8d8"><b>10,500,000 VND</b></td>
+                        <td class="view-detail" onclick="return viedetail('27284');" rowspan="2" style="border-bottom: 3px solid #d8d8d8; padding-top: 25px;"><a href="javascript:;">Chi tiết</a></td>
+                        <td rowspan="2" style="border-bottom: 3px solid #d8d8d8"><input type="radio" value="27284" name="departFlight" style="right: 40px;top:25px;display: none">
+                          <input class="choose-button" type="button" value="Đặt vé"></td>
+                      </tr>
+                      <tr class="27284">
+                        <td class="img-airline" style="border-bottom: 3px solid #d8d8d8;"> Chiều về:<br />
+                          <span>01/06</span></td>
+                        <td class="img-airline" style="border-bottom: 3px solid #d8d8d8;"><div class="airline_brand clearfix">
+                            <div class="img-fly"><span class="img50"><img src="Images/VN.gif" alt="VN"></span></div>
+                            <div class="text-fly">Vietnam Airline<br />
+                            VN 662</div>
+                          </div></td>
+                        <td class="time" style="border-bottom: 3px solid #d8d8d8;"><b>15:50 </b> SIN </td>
+                        <td class="time" style="border-bottom: 3px solid #d8d8d8"><b>18:10 </b> HAN </td>
+                        <td style="border-bottom: 3px solid #d8d8d8"><b>2 chặng</b></td>
+                      </tr>
+                      <tr class="bgtr">
+                        <td class="img-airline" style="border-bottom: 1px dotted #d8d8d8;"> Chiều đi:<br />
+                          <span>25/05</span></td>
+                        <td class="img-airline" style="border-bottom: 1px dotted #d8d8d8;"><div class="airline_brand clearfix">
+                            <div class="img-fly"><span class="img50"><img src="Images/VN.gif" alt="VN"></span></div>
+                            <div class="text-fly">Vietnam Airline<br />
+                            VN 662</div>
+                          </div></td>
+                        <td class="time" style="border-bottom: 1px dotted #d8d8d8;"><b>10:40 </b>HAN </td>
+                        <td class="time" style="border-bottom: 1px dotted #d8d8d8;"><b>14:50 </b>SIN </td>
+                        <td style="border-bottom: 1px dotted #d8d8d8;"><b>2 chặng</b></td>
+                        <td class="price" rowspan="2" style="border-bottom: 3px solid #d8d8d8"><b>10,500,000 VND</b></td>
+                        <td class="view-detail" onclick="return viedetail('27284');" rowspan="2" style="border-bottom: 3px solid #d8d8d8; padding-top: 25px;"><a href="javascript:;">Chi tiết</a></td>
+                        <td rowspan="2" style="border-bottom: 3px solid #d8d8d8"><input type="radio" value="27284" name="departFlight" style="right: 40px;top:25px;display: none">
+                          <input class="choose-button" type="button" value="Đặt vé"></td>
+                      </tr>
+                      <tr class="bgtr">
+                        <td class="img-airline" style="border-bottom: 3px solid #d8d8d8;"> Chiều về:<br />
+                          <span>01/06</span></td>
+                        <td class="img-airline" style="border-bottom: 3px solid #d8d8d8;"><div class="airline_brand clearfix">
+                            <div class="img-fly"><span class="img50"><img src="Images/VN.gif" alt="VN"></span></div>
+                            <div class="text-fly">Vietnam Airline<br />
+                            VN 662</div>
+                          </div></td>
+                        <td class="time" style="border-bottom: 3px solid #d8d8d8;"><b>15:50 </b> SIN </td>
+                        <td class="time" style="border-bottom: 3px solid #d8d8d8"><b>18:10 </b> HAN </td>
+                        <td style="border-bottom: 3px solid #d8d8d8"><b>2 chặng</b></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="btnsearch text-left clearfix">
+                <input type="button" class="btn-pre" value="Quay Lại" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
