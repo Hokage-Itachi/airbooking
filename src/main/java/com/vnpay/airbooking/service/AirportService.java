@@ -16,4 +16,7 @@ public class AirportService {
         return airportRepository.findAll();
     }
 
+    public Airport findByCode(String code){
+        return airportRepository.findByCode(code);
+    }
 }

@@ -36,10 +36,10 @@
     <div class="main clearfix">
         <div class="inner-container">
             <ul class="pathway clearfix">
-                <li class="active"><a th:href="@{DatVe}">1. Tìm chuyến bay</a></li>
-                <li><a th:href="@{DatVe-B2}">2. Chọn chuyến bay</a></li>
-                <li><a th:href="@{DatVe-B3}">3. Thông tin hành khách</a></li>
-                <li><a th:href="@{DatVe-B4}">4. Kết thúc</a></li>
+                <li class="active"><a th:href="@{/}">1. Tìm chuyến bay</a></li>
+                <li><a>2. Chọn chuyến bay</a></li>
+                <li><a>3. Thông tin hành khách</a></li>
+                <li><a>4. Kết thúc</a></li>
             </ul>
             <div class="box-main clearfix">
                 <div class="box-search">
@@ -47,13 +47,11 @@
                     <form method="POST" th:action="@{search}" th:object="${searchForm}">
                         <ul class="choose clearfix">
 
-                                <input checked type="radio" name="choose" id="Return" th:field="*{type_fight}" th:value="2" onclick="change_flight_selection()"/>
-                                <label for="Return" id="return-label" class="return-label" onclick="change_flight_selection()">Khứ
-                                    hồi</label>
+                                <input type="radio" name="choose" id="Return" th:field="*{type_fight}" th:value="2" onclick="change_flight_selection()"/>
+                                <label for="Return" id="return-label" class="return-label" onclick="change_flight_selection()">Khứ hồi</label>
 
                                 <input type="radio" name="choose" id="oneway" th:field="*{type_fight}" th:value="1" onclick="change_flight_selection()"/>
-                                <label for="oneway" id="oneway-label" onclick="change_flight_selection()">Một
-                                    chiều</label>
+                                <label for="oneway" id="oneway-label" onclick="change_flight_selection()">Một chiều</label>
 
                         </ul>
                         <div class="form">
@@ -63,7 +61,7 @@
                                     <select class="autocomplete-ui-autocomplete-input"  th:field="*{orig_place}">
                                         <option th:each="airport : ${airports}"
                                                 th:value="${airport.airport_code}"
-                                                th:utext="${airport.airport_name}">Điểm đến</option>
+                                                th:utext="${airport.airport_name + ' '+ '(' + airport.airport_code + ')'}">Điểm đến</option>
                                     </select>
 
                                 </div>
@@ -72,7 +70,7 @@
                                     <select class="autocomplete-ui-autocomplete-input"  th:field="*{des_place}">
                                         <option th:each="airport : ${airports}"
                                                 th:value="${airport.airport_code}"
-                                                th:utext="${airport.airport_name}"/>
+                                                th:utext="${airport.airport_name + ' '+ '(' + airport.airport_code + ')'}">Điểm đến</option>
                                     </select>
                                 </div>
                             </div>
@@ -82,12 +80,12 @@
                                         <div class="col-ahaft" id="col-ahaft">
                                             <label>Ngày đi</label>
                                             <input class="ics_date" type="text" value="19/09/2020" th:field="${searchForm.orig_date}"
-                                                   id="datepicker-1" />
+                                                   id="datepicker-1"  required readonly/>
                                         </div>
                                         <div class="col-ahaft last" id="col-ahaft last">
                                             <label>Ngày về</label>
                                             <input class="ics_date" type="text" value="20/7/2020" th:field="${searchForm.return_date}"
-                                                   id="datepicker-2" />
+                                                   id="datepicker-2" readonly required/>
                                         </div>
                                     </div>
                                 </div>
@@ -102,13 +100,13 @@
                                         <div class="col-30">
                                             <label>Trẻ em <span>(2 - 12 tuổi)</span> </label>
                                             <div class="person2">
-                                                <input class="number-person" type="number" th:field="${searchForm.child_number}"/>
+                                                <input class="number-person" type="number" min="0" th:field="${searchForm.child_number}"/>
                                             </div>
                                         </div>
                                         <div class="col-30 last">
                                             <label>Em bé <span>(< 2 tuổi)</span> </label>
                                             <div class="person3">
-                                                <input class="number-person" type="number"th:field="${searchForm.baby_number}"/>
+                                                <input class="number-person" type="number" min="0" th:field="${searchForm.baby_number}"/>
                                             </div>
                                         </div>
                                     </div>

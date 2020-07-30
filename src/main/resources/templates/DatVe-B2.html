@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" type="text/css" href="style/theme.css" media="all" />
@@ -21,15 +21,26 @@
       <div class="main clearfix">
         <div class="inner-container">
           <ul class="pathway clearfix">
-            <li><a th:href="@{DatVe}">1. Tìm chuyến bay</a></li>
-            <li class="active"><a th:href="@{DatVe-B2}">2. Chọn chuyến bay</a></li>
-            <li><a th:href="@{DatVe-B3}">3. Thông tin hành khách</a></li>
-            <li><a th:href="@{DatVe-B4}">4. Kết thúc</a></li>
+            <li><a th:href="@{/}">1. Tìm chuyến bay</a></li>
+            <li class="active"><a>2. Chọn chuyến bay</a></li>
+            <li><a>3. Thông tin hành khách</a></li>
+            <li><a>4. Kết thúc</a></li>
           </ul>
-          <div class="box-main clearfix">
+          <div class="box-main clearfix" th:object="${flightData}">
             <div class="col-left">
               <div class="box-item">
-                <h2 class="title-item"><strong>2. Chọn chuyến bay</strong> <span>(<span class="clblue">Hà Nội</span> <span class="text-plane"><img src="images/img-khu-hoi.png" width="16" height="20" alt=""/></span> <span class="clblue">TP.Hồ Chí Minh</span>)</span></h2>
+                <h2 class="title-item">
+                  <strong>2. Chọn chuyến bay</strong>
+                  <span>(<span class="clblue" th:text="${orig_place}">Hà Nội</span>
+                    <span class="text-plane" th:if="${flightData.returnFlights.size() != 0}">
+                      <img src="images/img-khu-hoi.png" width="16" height="20" alt=""/>
+                    </span>
+                    <span class="text-plane" th:if="${flightData.returnFlights.size() == 0}">
+                      <img src="images/img-1chieu.png" width="16" height="20" alt=""/>
+                    </span>
+                    <span class="clblue" th:text="${des_place}">TP.Hồ Chí Minh</span>)
+                  </span>
+                </h2>
                 <ul class="choose-day clearfix">
                   <li><a href="#">THỨ HAI<br />
                     25/04</a></li>
@@ -60,126 +71,54 @@
                         <td width="15%">&nbsp;</td>
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr>
-                        <td class="img-airline" style="border-bottom: 1px dotted #d8d8d8;"> Chiều đi:<br />
-                          <span>25/05</span></td>
-                        <td class="img-airline" style="border-bottom: 1px dotted #d8d8d8;"><div class="airline_brand clearfix">
-                            <div class="img-fly"><span class="img50"><img src="Images/VN.gif" alt="VN"></span></div>
-                            <div class="text-fly">Vietnam Airline<br />
-                            VN 662</div>
-                          </div></td>
-                        <td class="time" style="border-bottom: 1px dotted #d8d8d8;"><b>10:40 </b>HAN </td>
-                        <td class="time" style="border-bottom: 1px dotted #d8d8d8;"><b>14:50 </b>SIN </td>
-                        <td style="border-bottom: 1px dotted #d8d8d8;"><b>2 chặng</b></td>
-                        <td class="price" rowspan="2" style="border-bottom: 3px solid #d8d8d8"><b>10,500,000 VND</b></td>
-                        <td class="view-detail" onclick="return viedetail('27284');" rowspan="2" style="border-bottom: 3px solid #d8d8d8; padding-top: 25px;"><a href="javascript:;">Chi tiết</a></td>
-                        <td rowspan="2" style="border-bottom: 3px solid #d8d8d8"><input type="radio" value="27284" name="departFlight" style="right: 40px;top:25px;display: none">
-                          <input class="choose-button" type="button" value="Đặt vé"></td>
-                      </tr>
-                      <tr>
-                        <td class="img-airline" style="border-bottom: 3px solid #d8d8d8;"> Chiều về:<br />
-                          <span>01/06</span></td>
-                        <td class="img-airline" style="border-bottom: 3px solid #d8d8d8;"><div class="airline_brand clearfix">
-                            <div class="img-fly"><span class="img50"><img src="Images/VN.gif" alt="VN"></span></div>
-                            <div class="text-fly">Vietnam Airline<br />
-                            VN 662</div>
-                          </div></td>
-                        <td class="time" style="border-bottom: 3px solid #d8d8d8;"><b>15:50 </b> SIN </td>
-                        <td class="time" style="border-bottom: 3px solid #d8d8d8"><b>18:10 </b> HAN </td>
-                        <td style="border-bottom: 3px solid #d8d8d8"><b>2 chặng</b></td>
-                      </tr>
-                      
-                      <tr class="bgtr">
-                        <td class="img-airline" style="border-bottom: 1px dotted #d8d8d8;"> Chiều đi:<br />
-                          <span>25/05</span></td>
-                        <td class="img-airline" style="border-bottom: 1px dotted #d8d8d8;"><div class="airline_brand clearfix">
-                            <div class="img-fly"><span class="img50"><img src="Images/VN.gif" alt="VN"></span></div>
-                            <div class="text-fly">Vietnam Airline<br />
-                            VN 662</div>
-                          </div></td>
-                        <td class="time" style="border-bottom: 1px dotted #d8d8d8;"><b>10:40 </b>HAN </td>
-                        <td class="time" style="border-bottom: 1px dotted #d8d8d8;"><b>14:50 </b>SIN </td>
-                        <td style="border-bottom: 1px dotted #d8d8d8;"><b>2 chặng</b></td>
-                        <td class="price" rowspan="2" style="border-bottom: 3px solid #d8d8d8"><b>10,500,000 VND</b></td>
-                        <td class="view-detail" onclick="return viedetail('27284');" rowspan="2" style="border-bottom: 3px solid #d8d8d8; padding-top: 25px;"><a href="javascript:;">Chi tiết</a></td>
-                        <td rowspan="2" style="border-bottom: 3px solid #d8d8d8"><input type="radio" value="27284" name="departFlight" style="right: 40px;top:25px;display: none">
-                          <input class="choose-button" type="button" value="Đặt vé"></td>
-                      </tr>
-                      <tr class="bgtr">
-                        <td class="img-airline" style="border-bottom: 3px solid #d8d8d8;"> Chiều về:<br />
-                          <span>01/06</span></td>
-                        <td class="img-airline" style="border-bottom: 3px solid #d8d8d8;"><div class="airline_brand clearfix">
-                            <div class="img-fly"><span class="img50"><img src="Images/VN.gif" alt="VN"></span></div>
-                            <div class="text-fly">Vietnam Airline<br />
-                            VN 662</div>
-                          </div></td>
-                        <td class="time" style="border-bottom: 3px solid #d8d8d8;"><b>15:50 </b> SIN </td>
-                        <td class="time" style="border-bottom: 3px solid #d8d8d8"><b>18:10 </b> HAN </td>
-                        <td style="border-bottom: 3px solid #d8d8d8"><b>2 chặng</b></td>
-                      </tr>
-                      <tr>
-                        <td class="img-airline" style="border-bottom: 1px dotted #d8d8d8;"> Chiều đi:<br />
-                          <span>25/05</span></td>
-                        <td class="img-airline" style="border-bottom: 1px dotted #d8d8d8;"><div class="airline_brand clearfix">
-                            <div class="img-fly"><span class="img50"><img src="Images/VN.gif" alt="VN"></span></div>
-                            <div class="text-fly">Vietnam Airline<br />
-                            VN 662</div>
-                          </div></td>
-                        <td class="time" style="border-bottom: 1px dotted #d8d8d8;"><b>10:40 </b>HAN </td>
-                        <td class="time" style="border-bottom: 1px dotted #d8d8d8;"><b>14:50 </b>SIN </td>
-                        <td style="border-bottom: 1px dotted #d8d8d8;"><b>2 chặng</b></td>
-                        <td class="price" rowspan="2" style="border-bottom: 3px solid #d8d8d8"><b>10,500,000 VND</b></td>
-                        <td class="view-detail" onclick="return viedetail('27284');" rowspan="2" style="border-bottom: 3px solid #d8d8d8; padding-top: 25px;"><a href="javascript:;">Chi tiết</a></td>
-                        <td rowspan="2" style="border-bottom: 3px solid #d8d8d8"><input type="radio" value="27284" name="departFlight" style="right: 40px;top:25px;display: none">
-                          <input class="choose-button" type="button" value="Đặt vé"></td>
-                      </tr>
-                      <tr>
-                        <td class="img-airline" style="border-bottom: 3px solid #d8d8d8;"> Chiều về:<br />
-                          <span>01/06</span></td>
-                        <td class="img-airline" style="border-bottom: 3px solid #d8d8d8;"><div class="airline_brand clearfix">
-                            <div class="img-fly"><span class="img50"><img src="Images/VN.gif" alt="VN"></span></div>
-                            <div class="text-fly">Vietnam Airline<br />
-                            VN 662</div>
-                          </div></td>
-                        <td class="time" style="border-bottom: 3px solid #d8d8d8;"><b>15:50 </b> SIN </td>
-                        <td class="time" style="border-bottom: 3px solid #d8d8d8"><b>18:10 </b> HAN </td>
-                        <td style="border-bottom: 3px solid #d8d8d8"><b>2 chặng</b></td>
-                      </tr>
-                      <tr class="bgtr">
-                        <td class="img-airline" style="border-bottom: 1px dotted #d8d8d8;"> Chiều đi:<br />
-                          <span>25/05</span></td>
-                        <td class="img-airline" style="border-bottom: 1px dotted #d8d8d8;"><div class="airline_brand clearfix">
-                            <div class="img-fly"><span class="img50"><img src="Images/VN.gif" alt="VN"></span></div>
-                            <div class="text-fly">Vietnam Airline<br />
-                            VN 662</div>
-                          </div></td>
-                        <td class="time" style="border-bottom: 1px dotted #d8d8d8;"><b>10:40 </b>HAN </td>
-                        <td class="time" style="border-bottom: 1px dotted #d8d8d8;"><b>14:50 </b>SIN </td>
-                        <td style="border-bottom: 1px dotted #d8d8d8;"><b>2 chặng</b></td>
-                        <td class="price" rowspan="2" style="border-bottom: 3px solid #d8d8d8"><b>10,500,000 VND</b></td>
-                        <td class="view-detail" onclick="return viedetail('27284');" rowspan="2" style="border-bottom: 3px solid #d8d8d8; padding-top: 25px;"><a href="javascript:;">Chi tiết</a></td>
-                        <td rowspan="2" style="border-bottom: 3px solid #d8d8d8"><input type="radio" value="27284" name="departFlight" style="right: 40px;top:25px;display: none">
-                          <input class="choose-button" type="button" value="Đặt vé"></td>
-                      </tr>
-                      <tr class="bgtr">
-                        <td class="img-airline" style="border-bottom: 3px solid #d8d8d8;"> Chiều về:<br />
-                          <span>01/06</span></td>
-                        <td class="img-airline" style="border-bottom: 3px solid #d8d8d8;"><div class="airline_brand clearfix">
-                            <div class="img-fly"><span class="img50"><img src="Images/VN.gif" alt="VN"></span></div>
-                            <div class="text-fly">Vietnam Airline<br />
-                            VN 662</div>
-                          </div></td>
-                        <td class="time" style="border-bottom: 3px solid #d8d8d8;"><b>15:50 </b> SIN </td>
-                        <td class="time" style="border-bottom: 3px solid #d8d8d8"><b>18:10 </b> HAN </td>
-                        <td style="border-bottom: 3px solid #d8d8d8"><b>2 chặng</b></td>
-                      </tr>
+                    <tbody >
+                      <th:block th:each="flight: ${flightData.departureFlights}">
+                       <tr>
+                          <td class="img-airline" style="border-bottom: 1px dotted #d8d8d8"> Chiều đi:<br />
+                            <span th:text = "${flight.depart_date.split('/')[0] + '/' + flight.depart_date.split('/')[1] }" >25/05</span></td>
+                          <td class="img-airline" style="border-bottom: 1px dotted #d8d8d8;"><div class="airline_brand clearfix">
+                              <div class="img-fly">
+                                <span class="img50">
+                                  <img src="Images/VN.gif" alt="VN">
+                                </span>
+                              </div>
+                              <div class="text-fly">
+                                  VietNam AirLine
+                                      <br />
+                                  <th:block th:text="${flight.flightSegments[0].flightNumber}"></th:block>
+                              </div>
+                            </div>
+                          </td>
+                          <td class="time" style="border-bottom: 1px dotted #d8d8d8;">
+                            <b th:text = "${flight.depart_date.split('/')[3]}"> 10:40 </b>
+                              <th:block  th:text="${flight.original}"></th:block>
+                          </td>
+                          <td class="time" style="border-bottom: 1px dotted #d8d8d8;">
+                              <b th:text = "${flight.arrival_date.split('/')[3]}"> 14:50 </b>
+                              <th:block  th:text="${flight.destination}"></th:block>
+                          </td>
+                          <td style="border-bottom: 1px dotted #d8d8d8;"><b th:text="${flight.flightSegments.length + ' chặng'}">2 chặng</b></td>
+                          <td class="price" rowspan="1" style="border-bottom: 3px solid #d8d8d8"><b th:text="${flight.priceToString()}">10,500,000 VND</b></td>
+  <!--                        <td class="view-detail" onclick="return viedetail('27284');" rowspan="2" style="border-bottom: 3px solid #d8d8d8; padding-top: 25px;"><a href="javascript:;">Chi tiết</a></td>-->
+                          <td rowspan="1" style="border-bottom: 3px solid #d8d8d8">
+                              <form th:action="@{DatVe-B3}" method="post">
+                                  <input type="hidden" th:value="${flight.flight_fare_id}" name="flight_fare_id"/>
+                                  <input class="choose-button" type="submit" value="Đặt vé">
+                                  <input type="radio"  name="departFlight" style="right: 40px;top:25px;display:none">
+                              </form>
+
+                          </td>
+
+                        </tr>
+                      </th:block>
                     </tbody>
                   </table>
                 </div>
               </div>
               <div class="btnsearch text-left clearfix">
-                <input type="button" class="btn-pre" value="Quay Lại" />
+
+                  <input type="button" class="btn-pre" value="Quay Lại" />
+
               </div>
             </div>
           </div>
