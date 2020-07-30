@@ -7,17 +7,17 @@ import javax.persistence.*;
 public class Airport {
     @Id
     @Column(name = "airport_code")
-    private String airport_code;
+    private String code;
 
     @Column(name = "airport_name")
     private String airport_name;
 
     public void setAirport_code(String airport_code) {
-        this.airport_code = airport_code;
+        this.code = airport_code;
     }
 
     public String getAirport_code() {
-        return airport_code;
+        return code;
     }
 
     public void setAirport_name(String airport_name) {
@@ -30,6 +30,6 @@ public class Airport {
 
     @Override
     public String toString() {
-        return  airport_name + "( " + airport_code +" )";
+        return  airport_name + "( " + code +" )";
     }
 }

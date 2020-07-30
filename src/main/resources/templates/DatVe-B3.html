@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="style/bootstrap.min.css" media="all" />
@@ -22,192 +22,198 @@
         <div class="main clearfix">
             <div class="inner-container">
                 <ul class="pathway clearfix">
-                    <li><a href="DatVe.html">1. Tìm chuyến bay</a></li>
-                    <li><a href="DatVe-B2.html">2. Chọn chuyến bay</a></li>
-                    <li class="active"><a href="DatVe-B3.html">3. Thông tin hành khách</a></li>
-                    <li><a href="DatVe-B4.html">4. Thanh toán</a></li>
+                    <li><a th:href="@{/}">1. Tìm chuyến bay</a></li>
+                    <li><a>2. Chọn chuyến bay</a></li>
+                    <li class="active"><a>3. Thông tin hành khách</a></li>
+                    <li><a>4. Thanh toán</a></li>
                 </ul>
                 <div class="box-main clearfix">
                     <div class="col-left">
                         <div class="plane-detail clearfix">
                             <div class="box-item" style="padding-top: 15px;">
-                                <div class="title">
-                                    <h2>
-                                        Thông tin chuyến bay
-                                    </h2>
-                                    <div class="icon-title">
+                                <th:block th:object="${flightDetails}">
+                                    <div class="title">
+                                        <h2>
+                                            Thông tin chuyến bay
+                                        </h2>
+                                        <div class="icon-title">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="box-cont2 clearfix">
-                                    <table width="100%" class="table4">
-                                        <tbody>
-                                            <tr>
-                                                <td width="18%" class="text-left">
-                                                    Ngày đi:
-                                                </td>
-                                                <td width="21%" class="text-left">
-                                                    <strong>25/04/2016</strong>
-                                                </td>
-                                                <td width="28%" class="text-right">
-                                                    Chuyến Bay:
-                                                </td>
-                                                <td width="33%" class="text-left">
-                                                    <strong>Khứ hồi </strong>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-left">
-                                                    <span>Ngày về:</span>
-                                                </td>
-                                                <td class="text-left">
-                                                    <strong>02/05/2016</strong>
-                                                </td>
-                                                <td class="text-right">
-                                                    Số lượng hành khách :
-                                                </td>
-                                                <td class="text-left">
-                                                    <strong>
-                                                        2 Người lớn, 1
-                                                        Trẻ em, 1 Em bé
-                                                    </strong>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <table width="100%" class="table3">
-                                        <tbody>
-                                            <tr class="title2">
-                                                <td colspan="7" class="text-plane">
-                                                    <img width="24" height="16" src="images/departure.png" alt="chuyen bay di" />
-                                                    Chiều đi từ:
-                                                    <strong>Hanoi, VN (HAN)</strong> đến <strong>Jakarta Jkt, ID (JKT) - 26/04/2016</strong>
-                                                </td>
-                                            </tr>
-                                            <tr class="title-row2">
-                                                <td width="17%" class="text-left">
-                                                    <strong>Hãng hàng không</strong>
-                                                </td>
-                                                <td width="12%">
-                                                    <strong>Giờ đi</strong>
-                                                </td>
-                                                <td width="12%">
-                                                    <strong>Giờ đến</strong>
-                                                </td>
-                                                <td width="10%">
-                                                    <strong>Hạng vé</strong>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="img-airline text-left">
-                                                    <div class="airline_brand clearfix">
-                                                        <div class="img-fly"><span class="img50"><img src="Images/VN.gif" alt="VN" /></span></div>
-                                                        <div class="text-fly">
-                                                            Vietnam Airline<br />
-                                                            <strong>VN 662</strong>
+                                    <div class="box-cont2 clearfix">
+                                        <table width="100%" class="table4">
+                                            <tbody>
+                                                <tr>
+                                                    <td width="18%" class="text-left">
+                                                        Ngày đi:
+                                                    </td>
+                                                    <td width="21%" class="text-left">
+                                                        <strong th:text="${flightDetails.depart_date.split('/')[0] + '/' +flightDetails.depart_date.split('/')[1] + '/' + flightDetails.depart_date.split('/')[2]}">25/04/2016</strong>
+                                                    </td>
+                                                    <td width="28%" class="text-right">
+                                                        Chuyến Bay:
+                                                    </td>
+                                                    <td width="33%" class="text-left">
+                                                        <strong >Một chiều </strong>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-left">
+                                                        <span>Ngày về:</span>
+                                                    </td>
+                                                    <td class="text-left">
+                                                        <strong>^_^</strong>
+                                                    </td>
+                                                    <td class="text-right">
+                                                        Số lượng hành khách :
+                                                    </td>
+                                                    <td class="text-left">
+                                                        <strong th:text="${flightDetails.getAdult() + ' Người lớn '}"></strong>
+                                                        <strong th:if="${flightDetails.getChild() > 0}" th:text="${ ',' +flightDetails.getChild() + ' Trẻ em, '}"></strong>
+                                                        <strong th:if="${flightDetails.getInfant() > 0}" th:text="${',' +flightDetails.getInfant() + ' Em bé '}"></strong>
+
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <table width="100%" class="table3">
+                                            <tbody>
+                                                <tr class="title2">
+                                                    <td colspan="7" class="text-plane">
+                                                        <img width="24" height="16" src="images/departure.png" alt="chuyen bay di" />
+                                                        Chiều đi từ:
+                                                        <strong th:text="${orig_place.airport_name + ' (' + orig_place.getAirport_code() + ')'}">Hanoi, VN (HAN)</strong>
+                                                        đến
+                                                        <strong th:text="${des_place.airport_name + ' (' + des_place.getAirport_code() +') - ' + flightDetails.depart_date.split('/')[0] + '/' +flightDetails.depart_date.split('/')[1] + '/' + flightDetails.depart_date.split('/')[2]}">Jakarta Jkt, ID (JKT) - 26/04/2016</strong>
+                                                    </td>
+                                                </tr>
+                                                <tr class="title-row2">
+                                                    <td width="17%" class="text-left">
+                                                        <strong>Hãng hàng không</strong>
+                                                    </td>
+                                                    <td width="12%">
+                                                        <strong>Giờ đi</strong>
+                                                    </td>
+                                                    <td width="12%">
+                                                        <strong>Giờ đến</strong>
+                                                    </td>
+                                                    <td width="10%">
+                                                        <strong>Hạng vé</strong>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="img-airline text-left">
+                                                        <div class="airline_brand clearfix">
+                                                            <div class="img-fly"><span class="img50"><img src="Images/VN.gif" alt="VN" /></span></div>
+                                                            <div class="text-fly">
+                                                                Vietnam Airline<br />
+                                                                <strong th:text="${flightDetails.flightSegments[0].flightNumber}">VN 662</strong>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                                <td class="time">
-                                                    <b>12:35</b> HAN
-                                                </td>
-                                                <td class="time">
-                                                    <b>17:35</b> SGN
-                                                </td>
-                                                <td>
-                                                    Phổ thông
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="img-airline text-left">
-                                                    <div class="airline_brand clearfix">
-                                                        <div class="img-fly"><span class="img50"><img src="Images/VN.gif" alt="VN" /></span></div>
-                                                        <div class="text-fly">
-                                                            Vietnam Airline<br />
-                                                            <strong>VN 663</strong>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="time">
-                                                    <b>12:35</b> SGN
-                                                </td>
-                                                <td class="time">
-                                                    <b>17:35</b> JKT
-                                                </td>
-                                                <td>
-                                                    Phổ thông
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <table width="100%" class="table3">
-                                        <tbody>
-                                            <tr class="title2">
-                                                <td colspan="7" class="text-plane">
-                                                    <img width="24" height="16" src="images/arrival.png" alt="chuyen bay ve" />
-                                                    Chiều về từ: <strong>Jakarta Jkt, ID (JKT)</strong> đến <strong>Hanoi, VN (HAN) - 02/05/2016</strong>
-                                                </td>
-                                            </tr>
-                                            <tr class="title-row2">
-                                                <td width="17%" class="text-left">
-                                                    <strong>Hãng hàng không</strong>
-                                                </td>
-                                                <td width="12%">
-                                                    <strong>Giờ đi</strong>
-                                                </td>
-                                                <td width="12%">
-                                                    <strong>Giờ đến</strong>
-                                                </td>
-                                                <td width="10%">
-                                                    <strong>Hạng vé</strong>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="img-airline text-left">
-                                                    <div class="airline_brand clearfix">
-                                                        <div class="img-fly"><span class="img50"><img src="Images/VN.gif" alt="VN" /></span></div>
-                                                        <div class="text-fly">
-                                                            Vietnam Airline<br />
-                                                            <strong>VN 664</strong>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="time">
-                                                    <b>12:35</b> JKT
-                                                </td>
-                                                <td class="time">
-                                                    <b>17:35</b> SGN
-                                                </td>
-                                                <td>
-                                                    Phổ thông
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="img-airline text-left">
-                                                    <div class="airline_brand clearfix">
-                                                        <div class="img-fly"><span class="img50"><img src="Images/VN.gif" alt="VN" /></span></div>
-                                                        <div class="text-fly">
-                                                            Vietnam Airline<br />
-                                                            <strong>VN 665</strong>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="time">
-                                                    <b>12:35</b> SGN
-                                                </td>
-                                                <td class="time">
-                                                    <b>17:35</b> HAN
-                                                </td>
-                                                <td>
-                                                    Phổ thông
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <div class="subtotal clearfix">
-                                        <strong>TỔNG TIỀN:</strong>
-                                        <strong class="clred">10,500,000 VNĐ</strong>
+                                                    </td>
+                                                    <td class="time">
+                                                        <b th:text="${flightDetails.depart_date.split('/')[3]}">12:35</b>
+                                                        <th:block th:text="${orig_place.airport_code}"></th:block>
+                                                    </td>
+                                                    <td class="time">
+                                                        <b th:text="${flightDetails.arrival_date.split('/')[3]}">17:35</b>
+                                                        <th:block th:text="${des_place.airport_code}"></th:block>
+                                                    </td>
+                                                    <td>
+                                                        Phổ thông
+                                                    </td>
+                                                </tr>
+<!--                                                <tr>-->
+<!--                                                    <td class="img-airline text-left">-->
+<!--                                                        <div class="airline_brand clearfix">-->
+<!--                                                            <div class="img-fly"><span class="img50"><img src="Images/VN.gif" alt="VN" /></span></div>-->
+<!--                                                            <div class="text-fly">-->
+<!--                                                                Vietnam Airline<br />-->
+<!--                                                                <strong>VN 663</strong>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                    </td>-->
+<!--                                                    <td class="time">-->
+<!--                                                        <b>12:35</b> SGN-->
+<!--                                                    </td>-->
+<!--                                                    <td class="time">-->
+<!--                                                        <b>17:35</b> JKT-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--                                                        Phổ thông-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+                                            </tbody>
+                                        </table>
+<!--                                        <table width="100%" class="table3">-->
+<!--                                            <tbody>-->
+<!--                                                <tr class="title2">-->
+<!--                                                    <td colspan="7" class="text-plane">-->
+<!--                                                        <img width="24" height="16" src="images/arrival.png" alt="chuyen bay ve" />-->
+<!--                                                        Chiều về từ: <strong>Jakarta Jkt, ID (JKT)</strong> đến <strong>Hanoi, VN (HAN) - 02/05/2016</strong>-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+<!--                                                <tr class="title-row2">-->
+<!--                                                    <td width="17%" class="text-left">-->
+<!--                                                        <strong>Hãng hàng không</strong>-->
+<!--                                                    </td>-->
+<!--                                                    <td width="12%">-->
+<!--                                                        <strong>Giờ đi</strong>-->
+<!--                                                    </td>-->
+<!--                                                    <td width="12%">-->
+<!--                                                        <strong>Giờ đến</strong>-->
+<!--                                                    </td>-->
+<!--                                                    <td width="10%">-->
+<!--                                                        <strong>Hạng vé</strong>-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+<!--                                                <tr>-->
+<!--                                                    <td class="img-airline text-left">-->
+<!--                                                        <div class="airline_brand clearfix">-->
+<!--                                                            <div class="img-fly"><span class="img50"><img src="Images/VN.gif" alt="VN" /></span></div>-->
+<!--                                                            <div class="text-fly">-->
+<!--                                                                Vietnam Airline<br />-->
+<!--                                                                <strong>VN 664</strong>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                    </td>-->
+<!--                                                    <td class="time">-->
+<!--                                                        <b>12:35</b> JKT-->
+<!--                                                    </td>-->
+<!--                                                    <td class="time">-->
+<!--                                                        <b>17:35</b> SGN-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--                                                        Phổ thông-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+<!--                                                <tr>-->
+<!--                                                    <td class="img-airline text-left">-->
+<!--                                                        <div class="airline_brand clearfix">-->
+<!--                                                            <div class="img-fly"><span class="img50"><img src="Images/VN.gif" alt="VN" /></span></div>-->
+<!--                                                            <div class="text-fly">-->
+<!--                                                                Vietnam Airline<br />-->
+<!--                                                                <strong>VN 665</strong>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                    </td>-->
+<!--                                                    <td class="time">-->
+<!--                                                        <b>12:35</b> SGN-->
+<!--                                                    </td>-->
+<!--                                                    <td class="time">-->
+<!--                                                        <b>17:35</b> HAN-->
+<!--                                                    </td>-->
+<!--                                                    <td>-->
+<!--                                                        Phổ thông-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+<!--                                            </tbody>-->
+<!--                                        </table>-->
+                                        <div class="subtotal clearfix">
+                                            <strong>TỔNG TIỀN:</strong>
+                                            <strong class="clred" th:text="${flightDetails.priceToString()}">10,500,000 VNĐ</strong>
+                                        </div>
                                     </div>
-                                </div>
+                                </th:block>
                             </div>
                             <div class="box-item">
                                 <div class="title">
@@ -216,75 +222,54 @@
                                 </div>
                                 <div class="box-itemcont clearfix">
                                     <div class="passenger">
-                                        <div class="clearfix col">
-                                            <span class="name-col">Người lớn 1</span>
-                                            <select class="title-name">
-                                                <option value="6">Ông</option>
-                                                <option value="7" selected="selected">Bà</option>
-                                                <option value="8">Anh</option>
-                                                <option value="9">Chị</option>
-                                            </select>
-                                            <input class="sername" type="text" placeholder="Họ*" />
-                                            <input class="firtname" type="text" placeholder="Đệm và tên*" />
-                                            <input class="passport" type="text" placeholder="Số hộ chiếu *" />
-                                            <input class="datepicker-passport hasDatepicker" type="text" placeholder="Hạn hộ chiếu *" />
+                                        <th:block th:each="adultNum : ${#numbers.sequence(1, flightDetails.getAdult())}">
+                                            <div class="clearfix col">
+                                                <span class="name-col" th:text="${'Người lớn ' + adultNum}">Người lớn 1</span>
+                                                <select class="title-name">
+                                                    <option value="6">Ông</option>
+                                                    <option value="7" selected="selected">Bà</option>
+                                                    <option value="8">Anh</option>
+                                                    <option value="9">Chị</option>
+                                                </select>
+                                                <input class="sername" type="text" placeholder="Họ*" />
+                                                <input class="firtname" type="text" placeholder="Đệm và tên*" />
+                                                <input class="passport" type="text" placeholder="Số hộ chiếu *" />
+                                                <input class="datepicker-passport hasDatepicker" type="text" placeholder="Hạn hộ chiếu *" />
 
-                                            <select><option>Quốc gia phát hành*</option></select>
-                                        </div>
-                                        <div class="clearfix col">
-                                            <span class="name-col">&nbsp;</span>
-                                            <span class="name_number">Số thẻ KH thường xuyên:</span>
-                                            <select class="name_fly"><option>Hãng</option></select>
-                                            <input class="number_fly" type="text" placeholder="Nhập số thẻ" />
-                                        </div>
-                                        <div class="clearfix col">
-                                            <span class="name-col">Người lớn 2</span>
-                                            <select class="title-name">
-                                                <option value="6">Ông</option>
-                                                <option value="7" selected="selected">Bà</option>
-                                                <option value="8">Anh</option>
-                                                <option value="9">Chị</option>
-                                            </select>
-                                            <input class="sername" type="text" placeholder="Họ*" />
-                                            <input class="firtname" type="text" placeholder="Đệm và tên*" />
-                                            <input class="passport" type="text" placeholder="Số hộ chiếu *" />
-                                            <input class="datepicker-passport hasDatepicker" type="text" placeholder="Hạn hộ chiếu *" />
+                                                <select><option>Quốc gia phát hành*</option></select>
+                                            </div>
 
-                                            <select><option>Quốc gia phát hành*</option></select>
-                                        </div>
-                                        <div class="clearfix col">
-                                            <span class="name-col">&nbsp;</span>
-                                            <span class="name_number">Số thẻ KH thường xuyên:</span>
-                                            <select class="name_fly"><option>Hãng</option></select>
-                                            <input class="number_fly" type="text" placeholder="Nhập số thẻ" />
-                                        </div>
-                                        <div class="clearfix col">
-                                            <span class="name-col">Trẻ em<br /><em class="small">(2-12 tuổi)</em></span>
-                                            <select class="title-name">
-                                                <option value="6">Nam</option>
-                                                <option value="7" selected="selected">Nữ</option>
-                                            </select>
-                                            <input class="sername" type="text" placeholder="Họ*" />
-                                            <input class="firtname" type="text" placeholder="Đệm và tên*" />
-                                            <input class="datepicker-passport hasDatepicker" type="text" placeholder="Ngày tháng năm sinh*" />
-                                        </div>
-                                        <div class="clearfix col">
-                                            <span class="name-col">&nbsp;</span>
-                                            <span class="name_number">Số thẻ KH thường xuyên:</span>
-                                            <select class="name_fly"><option>Hãng</option></select>
-                                            <input class="number_fly" type="text" placeholder="Nhập số thẻ" />
-                                        </div>
-                                        <div class="clearfix col">
-                                            <span class="name-col">Em bé<br /><em class="small">(&lt;2 tuổi)</em></span>
-                                            <select class="title-name">
-                                                <option value="6" selected="selected">Nam</option>
-                                                <option value="7">Nữ</option>
-                                            </select>
-                                            <input class="sername" type="text" placeholder="Họ*" />
-                                            <input class="firtname" type="text" placeholder="Đệm và tên*" />
-                                            <input class="datepicker-passport hasDatepicker" type="text" placeholder="Ngày tháng năm sinh*" />
-                                        </div>
-
+                                        </th:block>
+                                        <th:block th:if="${flightDetails.getChild() > 0}" th:each="childNum: ${#numbers.sequence(1, flightDetails.getChild())}">
+                                            <div class="clearfix col">
+                                                <span class="name-col">
+                                                    <th:block th:text="${'Trẻ em ' + childNum}"></th:block>
+                                                    <br/>
+                                                    <em class="small">(2-12 tuổi)</em></span>
+                                                <select class="title-name">
+                                                    <option value="6">Nam</option>
+                                                    <option value="7" selected="selected">Nữ</option>
+                                                </select>
+                                                <input class="sername" type="text" placeholder="Họ*" />
+                                                <input class="firtname" type="text" placeholder="Đệm và tên*" />
+                                                <input class="datepicker-passport hasDatepicker" type="text" placeholder="Ngày tháng năm sinh*" />
+                                            </div>
+                                        </th:block>
+                                        <th:block th:if="${flightDetails.getInfant() > 0}" th:each="infantNum :${#numbers.sequence(1, flightDetails.getInfant())}">
+                                            <div class="clearfix col">
+                                                <span class="name-col">
+                                                    <th:block th:text="${'Em bé ' + infantNum}"></th:block>
+                                                    <br/>
+                                                    <em class="small">(&lt;2 tuổi)</em></span>
+                                                <select class="title-name">
+                                                    <option value="6" selected="selected">Nam</option>
+                                                    <option value="7">Nữ</option>
+                                                </select>
+                                                <input class="sername" type="text" placeholder="Họ*" />
+                                                <input class="firtname" type="text" placeholder="Đệm và tên*" />
+                                                <input class="datepicker-passport hasDatepicker" type="text" placeholder="Ngày tháng năm sinh*" />
+                                            </div>
+                                        </th:block>
                                     </div>
                                 </div>
 

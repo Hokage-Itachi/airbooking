@@ -1,19 +1,12 @@
 package com.vnpay.airbooking.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import java.time.LocalDate;
-import java.util.Date;
 
 public class SearchForm {
+
     private String orig_place;
     private String des_place;
-    private String type_fight;
-//    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-//    private LocalDate orig_date;
-//    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-//    private LocalDate des_date;
+    private String type_fight = "2";
     private String orig_date;
     private String return_date;
     private int adult_number = 1;
@@ -43,24 +36,6 @@ public class SearchForm {
     public void setDes_place(String des_place) {
         this.des_place = des_place;
     }
-
-    //
-//    public LocalDate getOrig_date() {
-//        return orig_date;
-//    }
-//
-//    public void setOrig_date(LocalDate orig_date) {
-//        this.orig_date = orig_date;
-//    }
-//
-//    public LocalDate getDes_date() {
-//        return des_date;
-//    }
-
-//    public void setDes_date(LocalDate des_date) {
-//        this.des_date = des_date;
-//    }
-
 
     public String getReturn_date() {
         return return_date;
@@ -106,7 +81,7 @@ public class SearchForm {
 
     @Override
     public String toString() {
-        return "BookingForm{" +
+        return "SearchForm{" +
                 "orig_place='" + orig_place + '\'' +
                 ", des_place='" + des_place + '\'' +
                 ", orig_date='" + orig_date + '\'' +
@@ -116,4 +91,11 @@ public class SearchForm {
                 ", baby_number=" + baby_number +
                 '}';
     }
+
+    public static void main(String[] args) {
+
+
+    }
+
+
 }

@@ -1,17 +1,23 @@
 package com.vnpay.airbooking.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Arrays;
+import java.text.NumberFormat;
+import java.util.*;
 
 @Setter
 @Getter
+@JsonIgnoreProperties({"ticketConds", "ticketCondition"})
 public class Flight {
 
     private long flight_fare_id;
     private String airlineCode;
+//    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private String depart_date;
+//    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private String arrival_date;
     private String original;
     private String destination;
@@ -33,6 +39,31 @@ public class Flight {
     private long feeVnpay;
     private long totalPrice;
     private FlightSegment[] FlightSegments;
+    private int isDeparture;
+    private boolean isSelected;
+    private long pay_now;
+    private long feeSevAdult;
+    private long feeSevChild;
+    private long feeSevInfant;
+    private String classOfService;
+
+    public String priceToString(){
+        NumberFormat numberFormat = NumberFormat.getInstance(new Locale("en", "EN"));
+        return numberFormat.format(totalPrice) + " VNĐ";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Flight flight = (Flight) o;
+        return flight_fare_id == flight.flight_fare_id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(flight_fare_id);
+    }
 
     @Override
     public String toString() {
